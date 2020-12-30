@@ -3,16 +3,23 @@
 public class NumberWizard : MonoBehaviour
 {
 
-    int max = 1000;
-    int min = 1;
-    int guess = 500;
+    int max;
+    int min;
+    int guess;
 
     // Start is called before the first frame update
     void Start()
     {
+        StartGame();
+    }
 
-        
 
+    void StartGame()
+    {
+
+        max = 1000;
+        min = 1;
+        guess = 500;
 
         Debug.Log("Kamusta! Welcome to Number Guessing Game!");
         Debug.Log("Please pick a number from the following");
@@ -22,8 +29,9 @@ public class NumberWizard : MonoBehaviour
         Debug.Log("Push up/ W key = Higher, Push down/ W key = Lower, Push Enter = Correct");
 
         max = max + 1;
-
     }
+
+
 
     // Update is called once per frame
     void Update()
@@ -34,24 +42,25 @@ public class NumberWizard : MonoBehaviour
             //set the minimum value = guess
             min = guess;
             //change value of guess
-            guess = (max + min) / 2;
-            Debug.Log("Is it higher or lower than " + guess + "?");
-
+            NextGuess();
         }
 
         else if(Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
         {
             max = guess;
-            guess = (max + min) / 2;
-            Debug.Log("Is it higher or lower than " + guess + "?");
+            NextGuess();
         }
 
         else if(Input.GetKeyDown(KeyCode.Return))
         {
             Debug.Log("I'm a genius!");
+            StartGame();
         }
+    }
 
-
-
+    void NextGuess()
+    {
+        guess = (max + min) / 2;
+        Debug.Log("Is it higher or lower than " + guess + "?");
     }
 }
