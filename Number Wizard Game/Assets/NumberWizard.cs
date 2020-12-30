@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class NumberWizard : MonoBehaviour
 {
@@ -8,6 +6,9 @@ public class NumberWizard : MonoBehaviour
     void Start()
     {
         Debug.Log("Welcome to Number Wizard Game!");
+        Debug.Log("Please pick a number: ");
+        Debug.Log("Highest Number is:");
+        Debug.Log("Lowest number is:");
     }
 
     // Update is called once per frame
