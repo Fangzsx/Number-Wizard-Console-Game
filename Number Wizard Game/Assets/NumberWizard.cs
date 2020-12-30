@@ -14,13 +14,14 @@ public class NumberWizard : MonoBehaviour
         
 
 
-        Debug.Log("Welcome to Number Wizard Game!");
+        Debug.Log("Kamusta! Welcome to Number Guessing Game!");
         Debug.Log("Please pick a number from the following");
         Debug.Log("Highest number you can pick is " + max);
         Debug.Log("Lowest number possible is " + min);
-        Debug.Log("Tell me if your number is higher or lower than 500.");
+        Debug.Log("Tell me if your number is higher or lower than " + guess);
         Debug.Log("Push up/ W key = Higher, Push down/ W key = Lower, Push Enter = Correct");
 
+        max = max + 1;
 
     }
 
@@ -29,22 +30,25 @@ public class NumberWizard : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
         {
-            Debug.Log("Up arrow/W key was pressed!");
+            
+            //set the minimum value = guess
             min = guess;
-            Debug.Log(guess);
+            //change value of guess
+            guess = (max + min) / 2;
+            Debug.Log("Is it higher or lower than " + guess + "?");
 
         }
 
         else if(Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
         {
-            Debug.Log("Down arrow/S key was pressed!");
             max = guess;
-            Debug.Log(guess);
+            guess = (max + min) / 2;
+            Debug.Log("Is it higher or lower than " + guess + "?");
         }
 
         else if(Input.GetKeyDown(KeyCode.Return))
         {
-            Debug.Log("Enter was pressed!");
+            Debug.Log("I'm a genius!");
         }
 
 
